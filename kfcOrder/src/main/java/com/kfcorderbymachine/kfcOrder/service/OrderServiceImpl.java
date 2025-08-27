@@ -1,8 +1,10 @@
 package com.kfcorderbymachine.kfcOrder.service;
 
+import com.kfcorderbymachine.kfcOrder.dao.OrderDao;
 import com.kfcorderbymachine.kfcOrder.dto.ApiResponse;
 import com.kfcorderbymachine.kfcOrder.dto.OrderRequestDto;
 import com.kfcorderbymachine.kfcOrder.entity.OrderEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -11,6 +13,9 @@ import static com.kfcorderbymachine.kfcOrder.util.Constant.ORDER_PROCESSING_STAT
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    private OrderDao orderDao;
 
     @Override
     public ApiResponse createOrder(OrderRequestDto orderRequestDto) {
@@ -30,7 +35,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public ApiResponse getAllProcessingOrders() {
-
-        return null;
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setData(orderDao.getAllProcessingOrders());
+        apiResponse.setStatus(Boolean.TRUE);
+        apiResponse.setMsg("Success");
+        return apiResponse;
     }
 }

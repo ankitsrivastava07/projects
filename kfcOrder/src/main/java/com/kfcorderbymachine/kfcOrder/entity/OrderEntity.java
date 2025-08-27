@@ -13,6 +13,7 @@ public class OrderEntity {
 
     @PrimaryKey
     private Long id;
+    private String token;
     private Map<String, Integer> products;
     private String customerId;
     private Date createdAt;

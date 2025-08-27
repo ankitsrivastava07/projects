@@ -16,11 +16,13 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<?> saveOrder(@RequestBody OrderRequestDto orderRequestDto) {
-        return new ResponseEntity<>(orderService.createOrder(orderRequestDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(orderService.createOrder(orderRequestDto),
+                HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<?> getAllProcessingOrders() {
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(orderService.getAllProcessingOrders(),
+                HttpStatus.CREATED);
     }
 }
