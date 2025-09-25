@@ -10,6 +10,5 @@ public class SubjectDto {
     private String title;
     private String name;
     private String description;
-    private List<TopicDto> topic;
     private String slugName;
 }

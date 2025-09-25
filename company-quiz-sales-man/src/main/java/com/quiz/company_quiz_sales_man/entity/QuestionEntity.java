@@ -16,13 +16,11 @@ public class QuestionEntity {
     @Id
     private String _id;
     private String question;
-    private List<OptionEntity> options;
-    private List<AnswerEntity> answers;
     private QuizConstantBoolean active;
     private Date createdAt;
     private Date updatedAt;
-    private String level;
-    private String subjectId;
-    private String topicId;
+    private String createdBy;
+    private List<AnswerEntity> answers;
+    private List<OptionEntity> options;
 
 }

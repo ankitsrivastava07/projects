@@ -10,7 +10,6 @@ public class CreateQuestionDto {
 
     private String question;
     private List<OptionDto> options;
-    private List<String> answers;
     private QuizConstantBoolean active;
     private String subjectId;
     private String topicId;

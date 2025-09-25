@@ -12,10 +12,19 @@ import java.util.List;
 public class QuizEntity {
 
     @Id
-    private String id;
+    private String _id;
     private List<QuestionEntity> questions;
+    private List<CompanyEntity> companies;
     private Date createdAt;
     private Date updatedAt;
     private String userId;
-    private Boolean status;
+    private Boolean active;
+    private String title;
+    private String commonAccess;
+    private String description;
+    private String createdBy;
+    private String level;
+    private String subjectId;
+    private String topicId;
+
 }

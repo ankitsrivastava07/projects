@@ -1,14 +1,12 @@
 package com.quiz.company_quiz_sales_man.mapper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.quiz.company_quiz_sales_man.dto.CreateQuestionDto;
-import com.quiz.company_quiz_sales_man.dto.OptionDto;
-import com.quiz.company_quiz_sales_man.dto.SubjectDto;
-import com.quiz.company_quiz_sales_man.dto.TopicDto;
+import com.quiz.company_quiz_sales_man.dto.*;
 import com.quiz.company_quiz_sales_man.entity.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class CustomObjectMapper {
@@ -39,8 +37,13 @@ public class CustomObjectMapper {
                 .toList();
     }
 
-    public List<AnswerEntity> convertAnswerDtoTOEntity(List<String> answers) {
-        return answers.stream().map(AnswerEntity::new).toList();
+    public List<AnswerEntity> convertAnswerDtoTOEntity(List<AnswerDto> answers) {
+        return answers.stream().map(e -> {
+            AnswerEntity ans = new AnswerEntity();
+            ans.setDescription(e.getDescription());
+            ans.setComment(e.getComment());
+            return ans;
+        }).collect(Collectors.toList());
     }
 
     public List<SubjectEntity> convertSubjectDtoToEntity(List<SubjectDto> subjectDtos) {
@@ -50,15 +53,6 @@ public class CustomObjectMapper {
             subject.setName(e.getName());
             subject.setTitle(e.getTitle());
             return subject;
-        }).toList();
-    }
-
-    public List<TopicEntity> convertTopicDtoToEntity(List<TopicDto> topicDtos) {
-        return topicDtos.stream().map(e -> {
-            TopicEntity topic = new TopicEntity();
-            topic.setName(e.getName());
-            topic.setSlugName(e.getSlugName());
-            return topic;
         }).toList();
     }
 }

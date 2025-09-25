@@ -10,4 +10,5 @@ public interface QuestionRepository extends MongoRepository<QuestionEntity, Stri
 
     @Query("{level: '?0', $in: {?1}}")
     List<QuestionEntity> findAllQuestions(String level, String subject);
+
 }

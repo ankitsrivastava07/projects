@@ -6,7 +6,7 @@ import com.quiz.company_quiz_sales_man.entity.QuizEntity;
 
 import java.util.List;
 
-public interface QuizQuestionDao {
+public interface QuizDao {
 
     QuestionEntity saveQuestion(QuestionEntity questionEntity);
 
@@ -14,4 +14,5 @@ public interface QuizQuestionDao {
 
     List<QuestionEntity> findAllQuestions(String level, String subject);
 
+    QuizEntity findById(String quizId);
 }

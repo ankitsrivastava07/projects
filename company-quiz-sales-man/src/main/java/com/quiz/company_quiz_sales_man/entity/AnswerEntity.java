@@ -4,10 +4,9 @@ import lombok.Data;
 
 @Data
 public class AnswerEntity extends BaseEntity {
-    private String answer;
+
+    private String comment;
+    private String description;
     private String createdBy;
 
-    public AnswerEntity(String answer) {
-        this.answer = answer;
-    }
 }
